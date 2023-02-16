@@ -8,16 +8,16 @@ export default function index(props: any) {
 }
 
 export const getStaticPaths: GetStaticPaths = () => {
-  const posts = fs.readdirSync("./posts").map((file) => file.split(".")[0]);
+  const posts = fs.readdirSync("posts").map((file) => file.split(".")[0]);
 
   const paths = posts.filter((file) => file.match(/\.md$/)).map((post) => ({ params: { id: post } }));
 
-  return { paths, fallback: false };
+  return { paths, fallback: true };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
   try {
-    const post = fs.readFileSync(`./posts/${context.params?.id}.md`).toString();
+    const post = fs.readFileSync(`posts/${context.params?.id}.md`).toString();
 
     return {
       props: { post },
