@@ -1,5 +1,6 @@
 import fs from "fs";
 import { GetStaticProps } from "next";
+import Link from "next/link";
 
 interface Props {
   paths: { id: string }[];
@@ -12,7 +13,7 @@ export default function index({ paths }: Props) {
       Home
       <div>
         {paths.map((path) => (
-          <li key={path.id}>{path.id}</li>
+          <Link key={path.id} href={`/posts/${path.id}`}>{path.id}</Link>
         ))}
       </div>
     </div>
