@@ -12,7 +12,7 @@ export const getStaticPaths: GetStaticPaths = () => {
 
   const paths = posts.filter((file) => file.match(/\.md$/)).map((post) => ({ params: { id: post } }));
 
-  return { paths, fallback: "blocking" };
+  return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
