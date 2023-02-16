@@ -5,7 +5,6 @@ interface Props {
 }
 
 export default function Post({ post }: Props) {
-  console.log({ post });
   return (
     <>
       <MarkdownRenderer markdownStr={post} />

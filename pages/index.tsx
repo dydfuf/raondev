@@ -7,7 +7,6 @@ interface Props {
 }
 
 export default function index({ paths }: Props) {
-  console.log({ paths });
   return (
     <div>
       Home

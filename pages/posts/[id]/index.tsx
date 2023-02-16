@@ -10,9 +10,9 @@ export default function index(props: any) {
 export const getStaticPaths: GetStaticPaths = () => {
   const posts = fs.readdirSync(`${process.cwd()}/public/posts`).map((file) => file.split(".")[0]);
 
-  const paths = posts.filter((file) => file.match(/\.md$/)).map((post) => ({ params: { id: post } }));
+  const paths = posts.map((post) => ({ params: { id: post } }));
 
-  return { paths: [{ params: { id: "test" } }], fallback: false };
+  return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
