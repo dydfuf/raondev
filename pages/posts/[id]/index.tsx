@@ -4,11 +4,19 @@ import Post from "@/components/Post";
 import { GetStaticPaths, GetStaticProps } from "next";
 
 export default function index(props: any) {
-  return <Post {...props} />;
+  return (
+    <div className="flex flex-col justify-center w-full items-center">
+      <article className="markdown-body w-[800px]">
+        <Post {...props} />
+      </article>
+    </div>
+  );
 }
 
 export const getStaticPaths: GetStaticPaths = () => {
-  const posts = fs.readdirSync(`${process.cwd()}/public/posts`).map((file) => file.split(".")[0]);
+  const posts = fs
+    .readdirSync(`${process.cwd()}/public/posts`)
+    .map((file) => file.split(".")[0]);
 
   const paths = posts.map((post) => ({ params: { id: post } }));
 
@@ -17,7 +25,9 @@ export const getStaticPaths: GetStaticPaths = () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   try {
-    const post = fs.readFileSync(`${process.cwd()}/public/posts/${context.params?.id}.md`).toString();
+    const post = fs
+      .readFileSync(`${process.cwd()}/public/posts/${context.params?.id}.md`)
+      .toString();
 
     return {
       props: { post },
