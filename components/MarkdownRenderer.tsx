@@ -13,12 +13,19 @@ export default function MarkdownRenderer({ markdownStr }: Props) {
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
       components={{
-        code({ node, inline, className, children, style, ...props }: CodeProps) {
+        code({
+          node,
+          inline,
+          className,
+          children,
+          style,
+          ...props
+        }: CodeProps) {
           const match = /language-(\w+)/.exec(className || "");
 
           if (inline) {
             return (
-              <code className="before:none after:none" style={{ backgroundColor: "red" }} {...props}>
+              <code className={className} {...props}>
                 {children}
               </code>
             );
@@ -26,14 +33,23 @@ export default function MarkdownRenderer({ markdownStr }: Props) {
 
           if (match) {
             return (
-              <SyntaxHighlighter style={oneDark} language={match[1]} PreTag="div" {...props}>
+              <SyntaxHighlighter
+                style={oneDark}
+                language={match[1]}
+                PreTag="div"
+                {...props}
+              >
                 {String(children).replace(/\n$/, "")}
               </SyntaxHighlighter>
             );
           }
 
           return (
-            <code className={className} {...props}>
+            <code
+              style={{ backgroundColor: "red" }}
+              className={className}
+              {...props}
+            >
               {children}
             </code>
           );
