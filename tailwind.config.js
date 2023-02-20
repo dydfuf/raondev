@@ -1,3 +1,19 @@
+const colors = require("./tailwind/colors");
+
+const spacing = {};
+const borderWidth = {};
+const borderRadius = {};
+const fontSize = {};
+const lineHeight = {};
+
+for (let i = 0; i <= 1000; i++) {
+  spacing[i] = `${i}px`;
+  borderWidth[i] = `${i}px`;
+  borderRadius[i] = `${i}px`;
+  fontSize[i] = `${i}px`;
+  lineHeight[i] = `${i}px`;
+}
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -6,7 +22,14 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      spacing,
+      borderWidth,
+      borderRadius,
+      fontSize,
+      lineHeight,
+      colors,
+    },
   },
   // plugins: [require("@tailwindcss/typography")],
   plugins: [require("@tailwindcss/typography")],

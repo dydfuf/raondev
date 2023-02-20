@@ -4,13 +4,7 @@ import Post from "@/components/Post";
 import { GetStaticPaths, GetStaticProps } from "next";
 
 export default function index(props: any) {
-  return (
-    <div className="flex flex-col justify-center w-full items-center">
-      <article className="markdown-body w-[800px]">
-        <Post {...props} />
-      </article>
-    </div>
-  );
+  return <Post {...props} />;
 }
 
 export const getStaticPaths: GetStaticPaths = () => {

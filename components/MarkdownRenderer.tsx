@@ -45,11 +45,7 @@ export default function MarkdownRenderer({ markdownStr }: Props) {
           }
 
           return (
-            <code
-              style={{ backgroundColor: "red" }}
-              className={className}
-              {...props}
-            >
+            <code className={className} {...props}>
               {children}
             </code>
           );
