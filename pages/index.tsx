@@ -1,3 +1,4 @@
+import { getPostList } from "@/utils/post";
 import fs from "fs";
 import { GetStaticProps } from "next";
 import Link from "next/link";
@@ -9,7 +10,6 @@ interface Props {
 export default function index({ paths }: Props) {
   return (
     <div>
-      Home
       <div>
         {paths.map((path) => (
           <Link key={path.id} href={`/posts/${path.id}`}>
@@ -23,8 +23,7 @@ export default function index({ paths }: Props) {
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const posts = fs.readdirSync(`${process.cwd()}/public/posts`).map((file) => file.split(".")[0]);
-
+    const posts = getPostList();
     const paths = posts.map((post) => ({ id: post }));
 
     return {
