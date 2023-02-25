@@ -2,7 +2,7 @@ import fs from "fs";
 
 import Post from "@/components/Post";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { getPostList } from "@/utils/post";
+import { getPostByName, getPostNameList } from "@/utils/post";
 import { parseMarkdownMetadata } from "@/utils/parseMarkdownMetadata";
 
 export default function index(props: any) {
@@ -10,7 +10,7 @@ export default function index(props: any) {
 }
 
 export const getStaticPaths: GetStaticPaths = () => {
-  const posts = getPostList();
+  const posts = getPostNameList();
   const paths = posts.map((post) => ({ params: { id: post } }));
 
   return { paths, fallback: false };
@@ -18,9 +18,7 @@ export const getStaticPaths: GetStaticPaths = () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   try {
-    const post = fs
-      .readFileSync(`${process.cwd()}/public/posts/${context.params?.id}.md`)
-      .toString();
+    const post = getPostByName(context.params?.id as string);
 
     const { content, ...rest } = parseMarkdownMetadata(post);
 
