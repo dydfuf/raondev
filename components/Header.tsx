@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Anton } from "@next/font/google";
 import classNames from "classnames";
-import { useRouter } from "next/router";
 import Link from "next/link";
 
 const anton = Anton({ subsets: ["latin"], weight: ["400"] });

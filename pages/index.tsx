@@ -1,73 +1,39 @@
 import ContentCard from "@/components/ContentCard";
-import { getPostList } from "@/utils/post";
+import { parseMarkdownMetadata } from "@/utils/parseMarkdownMetadata";
+import { getPostByName, getPostNameList } from "@/utils/post";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 
 interface Props {
-  paths: { id: string }[];
+  postList: {
+    name: string;
+    content: string;
+  }[];
 }
 
-export default function index({ paths }: Props) {
+export default function index({ postList }: Props) {
   return (
     <div>
       <div>
         <div className="w-full gap-20 grid sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 p-20">
-          <ContentCard
-            title="this is title"
-            timeToRead="10min"
-            description="this is description hello world!"
-            releaseDate="2023-02-21"
-            hashtags={["hash", "tag"]}
-          />
-          <ContentCard
-            title="this is title"
-            timeToRead="10min"
-            description="this is description hello world!"
-            releaseDate="2023-02-21"
-            hashtags={["hash", "tag"]}
-          />
-          <ContentCard
-            title="this is title"
-            timeToRead="10min"
-            description="this is description hello world!"
-            releaseDate="2023-02-21"
-            hashtags={["hash", "tag"]}
-          />
-          <ContentCard
-            title="this is title"
-            timeToRead="10min"
-            description="this is description hello world!"
-            releaseDate="2023-02-21"
-            hashtags={["hash", "tag"]}
-          />
-          <ContentCard
-            title="this is title"
-            timeToRead="10min"
-            description="this is description hello world!"
-            releaseDate="2023-02-21"
-            hashtags={["hash", "tag"]}
-          />
-          <ContentCard
-            title="this is title"
-            timeToRead="10min"
-            description="this is description hello world!"
-            releaseDate="2023-02-21"
-            hashtags={["hash", "tag"]}
-          />
-          <ContentCard
-            title="this is title"
-            timeToRead="10min"
-            description="this is description hello world!"
-            releaseDate="2023-02-21"
-            hashtags={["hash", "tag"]}
-          />
-        </div>
+          {postList.map((post) => {
+            const { name, content } = post;
+            const { date, description, category, title } =
+              parseMarkdownMetadata(content);
 
-        {paths.map((path) => (
-          <Link key={path.id} href={`/posts/${path.id}`}>
-            {path.id}
-          </Link>
-        ))}
+            return (
+              <ContentCard
+                key={name}
+                title={title ?? ""}
+                timeToRead="10min"
+                description={description ?? ""}
+                releaseDate={date ?? ""}
+                categories={category?.split(",") ?? []}
+                to={`/posts/${name}`}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );
@@ -75,11 +41,13 @@ export default function index({ paths }: Props) {
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const posts = getPostList();
-    const paths = posts.map((post) => ({ id: post }));
+    const postList = getPostNameList().map((postName) => ({
+      name: postName,
+      content: getPostByName(postName),
+    }));
 
     return {
-      props: { paths },
+      props: { postList },
     };
   } catch {
     return {
