@@ -30,6 +30,9 @@ module.exports = {
       lineHeight,
       colors,
     },
+    screens: {
+      mobile: "320px",
+    },
   },
   plugins: [require("@tailwindcss/typography")],
 };

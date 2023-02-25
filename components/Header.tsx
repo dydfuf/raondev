@@ -16,16 +16,19 @@ export default function Header() {
       </Link>
       <Link href={"/"}>
         <span
-          className={classNames(anton.className, "text-24 tracking-widest")}
+          className={classNames(
+            anton.className,
+            "text-24 tracking-widest hidden mobile:block"
+          )}
         >
           Raon.dev
         </span>
       </Link>
-      <div className="flex ml-auto items-center">
-        <div className="flex w-200 mr-20 h-24 border-2 rounded-12 text-12 items-center">
+      <div className="flex items-center w-full">
+        <div className="flex w-full max-w-[300px] ml-auto mr-20 h-24 border-2 rounded-12 text-12 items-center">
           Search
         </div>
-        <Link href="/aboutme">
+        <Link href="/aboutme" className="shrink-0">
           <span className="text-12 underline">About me</span>
         </Link>
       </div>
