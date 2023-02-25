@@ -29,6 +29,9 @@ module.exports = {
       fontSize,
       lineHeight,
       colors,
+      screens: {
+        mobile: "320px",
+      },
     },
     screens: {
       mobile: "320px",
