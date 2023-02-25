@@ -1,12 +1,22 @@
-import fs from "fs";
-
 import Post from "@/components/Post";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { getPostByName, getPostNameList } from "@/utils/post";
 import { parseMarkdownMetadata } from "@/utils/parseMarkdownMetadata";
+import Head from "next/head";
 
 export default function index(props: any) {
-  return <Post {...props} />;
+  const {
+    metadata: { title },
+  } = props;
+
+  return (
+    <>
+      <Head>
+        <title>{`Raon.dev | ${title}`}</title>
+      </Head>
+      <Post {...props} />
+    </>
+  );
 }
 
 export const getStaticPaths: GetStaticPaths = () => {

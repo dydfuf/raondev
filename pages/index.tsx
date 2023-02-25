@@ -2,7 +2,6 @@ import ContentCard from "@/components/ContentCard";
 import { parseMarkdownMetadata } from "@/utils/parseMarkdownMetadata";
 import { getPostByName, getPostNameList } from "@/utils/post";
 import { GetStaticProps } from "next";
-import Link from "next/link";
 
 interface Props {
   postList: {
