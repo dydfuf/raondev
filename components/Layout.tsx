@@ -12,7 +12,7 @@ const notoSansKr = Noto_Sans_KR({
 export default function Layout({ children }: PropsWithChildren) {
   return (
     <div
-      className={`h-screen flex flex-col min-w-[800px] ${notoSansKr.className}`}
+      className={`h-screen flex flex-col min-w-[800px] bg-[#fafafa] ${notoSansKr.className}`}
     >
       <Header />
       <div className="flex-1 flex flex-col overflow-auto">
