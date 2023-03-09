@@ -29,3 +29,13 @@ export const getPostByName = (fileName: string) => {
     return "";
   }
 };
+
+export const getAdjacentPost = (fileName: string) => {
+  const postNameList = getPostNameList();
+  const idx = postNameList.findIndex((postName) => postName === fileName);
+
+  return {
+    prev: postNameList[idx + 1] ?? "",
+    next: postNameList[idx - 1] ?? "",
+  };
+};

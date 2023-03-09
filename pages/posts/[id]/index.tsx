@@ -1,6 +1,6 @@
 import Post from "@/components/Post";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { getPostByName, getPostNameList } from "@/utils/post";
+import { getAdjacentPost, getPostByName, getPostNameList } from "@/utils/post";
 import { parseMarkdownMetadata } from "@/utils/parseMarkdownMetadata";
 import Head from "next/head";
 
@@ -32,8 +32,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
     const { content, ...rest } = parseMarkdownMetadata(post);
 
+    const { prev, next } = getAdjacentPost(context.params?.id as string);
+
     return {
-      props: { post: content, metadata: rest },
+      props: { post: content, metadata: rest, prev, next },
     };
   } catch {
     return {
