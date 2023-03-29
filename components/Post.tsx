@@ -16,7 +16,7 @@ export default function Post({ post, metadata, prev, next }: Props) {
 
   return (
     <div className="flex flex-col items-center w-full h-full">
-      <div className="flex py-40 flex-col w-768 h-full">
+      <div className="flex py-40 flex-col w-full max-w-[768px] px-20 h-full">
         <p className="text-40 font-bold">{title}</p>
         <div className="flex items-center space-x-10 text-gray-5 pl-8 pt-20 w-full">
           <span>{"10min"}</span>
