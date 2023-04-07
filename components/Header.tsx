@@ -3,7 +3,7 @@ import { Anton } from "@next/font/google";
 import classNames from "classnames";
 import Link from "next/link";
 
-const anton = Anton({ subsets: ["latin"], weight: ["400"] });
+const anton = Anton({ subsets: ["latin"], weight: ["400"], preload: false });
 
 export default function Header() {
   return (

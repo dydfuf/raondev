@@ -9,7 +9,7 @@ import NameTag from "./NameTag";
 const blackHanSans = Black_Han_Sans({
   weight: "400",
   subsets: ["latin"],
-  preload: true,
+  preload: false,
 });
 
 export default function AboutMe() {
