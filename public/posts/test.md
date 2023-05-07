@@ -60,7 +60,7 @@ category: 테스트, 마크다운, 헬로, world
 
 This is a normal paragraph:
 
-    This is a code block.
+This is a code block.
 
 end code block.
 
@@ -108,5 +108,8 @@ Link: [Google](https://google.com, "google link")
 
 사이즈 조절 기능은 없기 때문에 `<img width="" height=""></img>`를 이용한다.
 
-<img src="http://cfile6.uf.tistory.com/image/2426E646543C9B4532C7B0" width="450px" height="300px" title="px(픽셀) 크기 설정" alt="RubberDuck"></img><br/>
+<div>hello world</div>
+
+<img src="http://cfile6.uf.tistory.com/image/2426E646543C9B4532C7B0" width="450px" height="300px" title="px(픽셀) 크기 설정" alt="RubberDuck"></img>
+<br/>
 <img src="http://cfile6.uf.tistory.com/image/2426E646543C9B4532C7B0" width="40%" height="30%" title="%(비율) 크기 설정" alt="RubberDuck"></img>
