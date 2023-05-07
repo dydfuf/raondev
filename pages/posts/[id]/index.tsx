@@ -3,6 +3,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { getAdjacentPost, getPostByName, getPostNameList } from "@/utils/post";
 import { parseMarkdownMetadata } from "@/utils/parseMarkdownMetadata";
 import Head from "next/head";
+import readingTime from "reading-time";
 
 export default function index(props: any) {
   const {
@@ -34,8 +35,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
     const { prev, next } = getAdjacentPost(context.params?.id as string);
 
+    const stats = readingTime(content)
+
     return {
-      props: { post: content, metadata: rest, prev, next },
+      props: { post: content, metadata: rest, prev, next, stats },
     };
   } catch {
     return {
