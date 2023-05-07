@@ -14,7 +14,7 @@ export default function Layout({ children }: PropsWithChildren) {
       className={`h-screen flex flex-col bg-[#fafafa] ${notoSansKr.className}`}
     >
       <Header />
-      <div className="flex-1 flex flex-col overflow-auto">
+      <div className="flex-1 flex flex-col overflow-auto" id="scrollEl">
         <main className="flex-1">{children}</main>
       </div>
     </div>
