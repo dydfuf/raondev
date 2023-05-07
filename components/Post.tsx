@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ReadTimeResults } from "reading-time";
 import Category from "./Category";
 import MarkdownRenderer from "./MarkdownRenderer";
 
@@ -8,9 +9,10 @@ interface Props {
   metadata: Record<string, string>;
   prev: string;
   next: string;
+  stats: ReadTimeResults;
 }
 
-export default function Post({ post, metadata, prev, next }: Props) {
+export default function Post({ post, metadata, prev, next, stats }: Props) {
   const { title, date, category } = metadata;
   const categories = category.split(",");
 
@@ -19,7 +21,7 @@ export default function Post({ post, metadata, prev, next }: Props) {
       <div className="flex py-40 flex-col w-full max-w-[768px] px-20 h-full">
         <p className="text-40 font-bold">{title}</p>
         <div className="flex items-center space-x-10 text-gray-5 pl-8 pt-20 w-full">
-          <span>{"10min"}</span>
+          <span>{stats.text}</span>
           <div className="w-2 h-2 rounded-1 bg-gray-4" />
           <span>{date}</span>
         </div>

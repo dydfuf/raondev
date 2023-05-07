@@ -4,6 +4,7 @@ import MainBanner from "@/components/MainBanner";
 import { parseMarkdownMetadata } from "@/utils/parseMarkdownMetadata";
 import { getPostByName, getPostNameList } from "@/utils/post";
 import { GetStaticProps } from "next";
+import readingTime from "reading-time";
 
 interface Props {
   postList: {
@@ -23,12 +24,13 @@ export default function index({ postList }: Props) {
             const { name, content } = post;
             const { date, description, category, title } =
               parseMarkdownMetadata(content);
+            const stats = readingTime(content)
 
             return (
               <ContentCard
                 key={name}
                 title={title ?? ""}
-                timeToRead="10min"
+                timeToRead={stats.text}
                 description={description ?? ""}
                 releaseDate={date ?? ""}
                 categories={category?.split(",") ?? []}
