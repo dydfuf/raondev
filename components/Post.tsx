@@ -30,7 +30,7 @@ export default function Post({ post, metadata, prev, next, stats }: Props) {
             <Category key={category} category={category} />
           ))}
         </div>
-        <article className="pt-60 max-w-[none] prose prose-code:before:hidden prose-code:after:hidden prose-pre:p-0 prose-pre:bg-[transparent] markdown-body !bg-[#fafafa]">
+        <article className="pt-60 markdown-body !bg-[#fafafa]">
           <MarkdownRenderer markdownStr={post} />
         </article>
         <div className="flex mt-auto w-full pt-40">

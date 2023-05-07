@@ -3,6 +3,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { CodeProps } from "react-markdown/lib/ast-to-react";
 import remarkGfm from "remark-gfm";
+import rehypeRaw from 'rehype-raw'
 
 interface Props {
   markdownStr: string;
@@ -12,6 +13,7 @@ export default function MarkdownRenderer({ markdownStr }: Props) {
   return (
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
+      rehypePlugins={[rehypeRaw]}
       components={{
         code({
           node,
@@ -51,6 +53,7 @@ export default function MarkdownRenderer({ markdownStr }: Props) {
           );
         },
       }}
+      
     >
       {markdownStr}
     </ReactMarkdown>
