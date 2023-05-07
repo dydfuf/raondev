@@ -17,7 +17,7 @@ export default function RoundImageLink({ className, href, src, alt }: Props) {
         className
       )}
     >
-      <Link href={href}>
+      <Link href={href} target="_blank" rel="noopener noreferrer">
         <Image fill src={src} alt={alt} />
       </Link>
     </div>
