@@ -2,8 +2,12 @@ import DivideLine from "../DivideLine";
 import RoundImageLink from "./RoundImageLink";
 import NameTag from "./NameTag";
 import MainBanner from "../MainBanner";
+import useScrollTop from "@/hooks/useScrollTop";
 
 export default function AboutMe() {
+  
+  useScrollTop({})
+  
   return (
     <div>
       <MainBanner />

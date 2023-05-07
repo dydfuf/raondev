@@ -1,3 +1,4 @@
+import useScrollTop from "@/hooks/useScrollTop";
 import Image from "next/image";
 import Link from "next/link";
 import { ReadTimeResults } from "reading-time";
@@ -15,6 +16,9 @@ interface Props {
 export default function Post({ post, metadata, prev, next, stats }: Props) {
   const { title, date, category } = metadata;
   const categories = category.split(",");
+  
+
+  useScrollTop({dep: post})
 
   return (
     <div className="flex flex-col items-center w-full h-full">
