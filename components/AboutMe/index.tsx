@@ -9,13 +9,13 @@ export default function AboutMe() {
       <MainBanner />
       <DivideLine />
       {/* 프로필 및 링크 섹션 */}
-      <section className="mt-40">
-        <div className="w-full flex justify-evenly p-20 gap-x-20 gap-y-10 flex-wrap">
+      <section className="mt-40 flex flex-col items-center">
+        <div className="w-full flex justify-evenly p-20 gap-x-20 gap-y-10 flex-wrap max-w-[768px]">
           {NAME_TAGS.map((nameTag) => (
             <NameTag key={nameTag.label} {...nameTag} />
           ))}
         </div>
-        <div className="w-full flex justify-evenly p-20 gap-x-20">
+        <div className="w-full flex justify-evenly p-20 gap-x-20 max-w-[768px]">
           {ROUND_IMAGE_LINKS.map((roudImageLink) => (
             <RoundImageLink key={roudImageLink.alt} {...roudImageLink} />
           ))}
