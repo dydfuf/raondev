@@ -5,7 +5,7 @@ import { isBefore } from "date-fns";
 export const getPostNameList = () => {
   try {
     return fs
-      .readdirSync(`${process.cwd()}/public/posts`)
+      .readdirSync(`${process.cwd()}/posts`)
       .map((file) => file.split(".")[0])
       .map((postName) => {
         const { date } = parseMarkdownMetadata(getPostByName(postName));
@@ -22,9 +22,7 @@ export const getPostNameList = () => {
 
 export const getPostByName = (fileName: string) => {
   try {
-    return fs
-      .readFileSync(`${process.cwd()}/public/posts/${fileName}.md`)
-      .toString();
+    return fs.readFileSync(`${process.cwd()}/posts/${fileName}.md`).toString();
   } catch {
     return "";
   }
