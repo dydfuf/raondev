@@ -1,7 +1,7 @@
 import Post from '@/components/Post';
-import { BLOG_TITLE } from '@/constant/common';
 import { parseMarkdownMetadata } from '@/utils/parseMarkdownMetadata';
 import { getAdjacentPost, getPostByName } from '@/utils/post';
+import { Metadata } from 'next';
 import React from 'react';
 import readingTime from 'reading-time';
 
@@ -24,13 +24,14 @@ export default function Page({ params }: Props) {
   const props = { post: content, metadata: rest as any, prev, next, stats };
   return <Post {...props} />;
 }
-// // Dynamic metadata
-export async function generateMetadata({ params }: Props) {
+
+// Dynamic metadata
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = params;
 
   const post = getPostByName(id as string);
 
-  const { title } = parseMarkdownMetadata(post);
+  const { title, category } = parseMarkdownMetadata(post);
 
-  return { title: `${BLOG_TITLE} | ${title}` };
+  return { title, keywords: category };
 }
