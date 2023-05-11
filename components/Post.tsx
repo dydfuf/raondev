@@ -1,9 +1,10 @@
-import useScrollTop from "@/hooks/useScrollTop";
-import Image from "next/image";
-import Link from "next/link";
-import { ReadTimeResults } from "reading-time";
-import Category from "./Category";
-import MarkdownRenderer from "./MarkdownRenderer";
+'use client';
+import useScrollTop from '@/hooks/useScrollTop';
+import Image from 'next/image';
+import Link from 'next/link';
+import { ReadTimeResults } from 'reading-time';
+import Category from './Category';
+import MarkdownRenderer from './MarkdownRenderer';
 
 interface Props {
   post: string;
@@ -15,10 +16,9 @@ interface Props {
 
 export default function Post({ post, metadata, prev, next, stats }: Props) {
   const { title, date, category } = metadata;
-  const categories = category.split(",");
-  
+  const categories = category.split(',');
 
-  useScrollTop({dep: post})
+  useScrollTop({ dep: post });
 
   return (
     <div className="flex flex-col items-center w-full h-full">
@@ -30,7 +30,7 @@ export default function Post({ post, metadata, prev, next, stats }: Props) {
           <span>{date}</span>
         </div>
         <div className="flex justify-start flex-wrap gap-4 pt-20">
-          {categories.map((category) => (
+          {categories.map(category => (
             <Category key={category} category={category} />
           ))}
         </div>
