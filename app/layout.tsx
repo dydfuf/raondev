@@ -2,6 +2,7 @@ import Layout from '@/components/Layout';
 import '../styles/globals.css';
 import '../styles/github-markdown.css';
 import { BLOG_TITLE } from '@/constant/common';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata = {
   title: BLOG_TITLE,
@@ -17,6 +18,7 @@ export default function RootLayout({
       <head />
       <body>
         <Layout>{children}</Layout>
+        <Analytics />
       </body>
     </html>
   );
