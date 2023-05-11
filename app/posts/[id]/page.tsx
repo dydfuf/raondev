@@ -24,7 +24,8 @@ export default function Page({ params }: Props) {
   const props = { post: content, metadata: rest as any, prev, next, stats };
   return <Post {...props} />;
 }
-// // Dynamic metadata
+
+// Dynamic metadata
 export async function generateMetadata({ params }: Props) {
   const { id } = params;
 
