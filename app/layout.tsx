@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://raondev.vercel.app/favicon/LogoImage.png',
-        width: 152,
-        height: 152,
+        url: 'https://raondev.vercel.app/og.png',
+        width: 400,
+        height: 600,
       },
     ],
   },
