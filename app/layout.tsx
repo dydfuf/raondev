@@ -5,7 +5,10 @@ import { BLOG_TITLE } from '@/constant/common';
 import Analytics from '@/components/Analytics';
 
 export const metadata = {
-  title: BLOG_TITLE,
+  title: {
+    default: BLOG_TITLE,
+    template: `${BLOG_TITLE} | %s`,
+  },
 };
 
 export default function RootLayout({
