@@ -4,6 +4,7 @@ import '../styles/github-markdown.css';
 import { BLOG_TITLE } from '@/constant/common';
 import Analytics from '@/components/Analytics';
 import { Metadata } from 'next';
+import Head from './head';
 
 const description =
   '안녕하세요. Raon.dev의 개발 블로그 입니다. 주로 Front-end 관련 글을 작성합니다. Youtube 에서 라이브 방송을 합니다.';
@@ -21,6 +22,13 @@ export const metadata: Metadata = {
     siteName: BLOG_TITLE,
     locale: 'ko-Kr',
     type: 'website',
+    images: [
+      {
+        url: 'https://raondev.vercel.app/favicon/LogoImage.png',
+        width: 152,
+        height: 152,
+      },
+    ],
   },
 };
 
@@ -31,7 +39,7 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <head />
+      <Head />
       <body>
         <Layout>{children}</Layout>
         <Analytics />
