@@ -2,7 +2,7 @@ import Layout from '@/components/Layout';
 import '../styles/globals.css';
 import '../styles/github-markdown.css';
 import { BLOG_TITLE } from '@/constant/common';
-import { Analytics } from '@vercel/analytics/react';
+import Analytics from '@/components/Analytics';
 
 export const metadata = {
   title: BLOG_TITLE,
