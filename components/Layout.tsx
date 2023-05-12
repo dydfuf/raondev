@@ -1,11 +1,10 @@
-import { PropsWithChildren } from "react";
-import Header from "./Header";
-import { Noto_Sans_KR } from "@next/font/google";
+import { PropsWithChildren } from 'react';
+import Header from './Header';
+import { Noto_Sans_KR } from '@next/font/google';
 
 const notoSansKr = Noto_Sans_KR({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-  display: "swap",
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '700'],
 });
 
 export default function Layout({ children }: PropsWithChildren) {
