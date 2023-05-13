@@ -1,6 +1,6 @@
 ---
 title: Next.js v13의 sitemap.js 및 metadata 적용하기
-date: 2023-05-15
+date: 2023-05-13
 description: Next.js 13.4 버전을 기준으로 App Router를 활용한 기술블로그를 개발하며 겪은 경험을 공유합니다.
 category: Next.js 13, App Router, sitemap, metadata
 ---
