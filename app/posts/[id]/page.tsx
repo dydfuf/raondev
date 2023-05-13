@@ -26,12 +26,12 @@ export default function Page({ params }: Props) {
 }
 
 // Dynamic metadata
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export function generateMetadata({ params }: Props): Metadata {
   const { id } = params;
 
   const post = getPostByName(id as string);
 
-  const { title, category } = parseMarkdownMetadata(post);
+  const { title, category, description } = parseMarkdownMetadata(post);
 
-  return { title, keywords: category };
+  return { title, keywords: category, description };
 }
