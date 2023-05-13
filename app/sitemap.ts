@@ -1,9 +1,10 @@
 import { getPostNameList, getPostByName } from '../utils/post';
 import { parseMarkdownMetadata } from '../utils/parseMarkdownMetadata';
+import { MetadataRoute } from 'next';
 
 const URL = 'https://raondev.vercel.app';
 
-export default async function sitemap() {
+export default function sitemap(): MetadataRoute.Sitemap {
   const postList = getPostNameList().map(postName => ({
     name: postName,
     content: getPostByName(postName),
