@@ -17,6 +17,7 @@ export default function page() {
       <MainBanner />
       <DivideLine />
       <div className="w-full flex justify-center">
+        this is develop test
         <div className="w-full gap-20 grid grid-cols-1 p-20 max-w-[768px] sm:grid-cols-2">
           {postList.map(post => {
             const { name, content } = post;
