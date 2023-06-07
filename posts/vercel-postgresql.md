@@ -1,7 +1,7 @@
 ---
 title: Serverless SQL, Vercel Postgres 찍먹 해보기.
-date: 2023-05-20
-description: Vercel이 새롭게 선보인 Serverless database인 Vercel Postgres를 간단하게 알아봅니다..
+date: 2023-06-07
+description: Vercel이 새롭게 선보인 Serverless database인 Vercel Postgres를 간단하게 알아봅니다.
 category: Serverless, 서버리스, Vercel Postgres
 ---
 
