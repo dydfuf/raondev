@@ -1,10 +1,13 @@
-import Layout from '@/components/Layout';
 import '../styles/globals.css';
 import '../styles/github-markdown.css';
+import '@radix-ui/themes/styles.css';
+
+import Layout from '@/components/Layout';
 import { BLOG_TITLE } from '@/constant/common';
 import Analytics from '@/components/Analytics';
 import { Metadata } from 'next';
 import Head from './head';
+import { Theme, ThemePanel } from '@radix-ui/themes';
 
 const description =
   '안녕하세요. Raon.dev의 개발 블로그 입니다. 주로 Front-end 관련 글을 작성합니다. Youtube 에서 라이브 방송을 합니다.';
@@ -41,8 +44,11 @@ export default function RootLayout({
     <html>
       <Head />
       <body>
-        <Layout>{children}</Layout>
-        <Analytics />
+        <Theme radius="large" scaling="100%">
+          <Layout>{children}</Layout>
+          <Analytics />
+          {process.env.NODE_ENV === 'development' && <ThemePanel />}
+        </Theme>
       </body>
     </html>
   );

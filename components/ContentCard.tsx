@@ -1,5 +1,6 @@
-import Link from "next/link";
-import Category from "./Category";
+import Link from 'next/link';
+import Category from './Category';
+import { Card, Flex, Text } from '@radix-ui/themes';
 
 interface Props {
   title: string;
@@ -19,23 +20,28 @@ export default function ContentCard({
   to,
 }: Props) {
   return (
-    <div className="flex flex-col aspect-[1.5] rounded-20 bg-blue-3/[0.15] justify-start p-20">
-      <div className="flex justify-center">
+    <Card variant={'surface'}>
+      <Flex direction="column" align={'center'} p={'3'} height={'100%'}>
         <Link href={to}>
-          <span className="text-24 font-bold text-gray-9">{title}</span>
+          <Flex justify={'center'} align={'center'} width={'100%'}>
+            <Text size={'6'} weight={'bold'} align={'center'}>
+              {title}
+            </Text>
+          </Flex>
         </Link>
-      </div>
-      <div className="text-12 flex justify-center items-center space-x-10 text-gray-5 pt-8">
-        <span>{timeToRead}</span>
-        <div className="w-2 h-2 rounded-1 bg-gray-4" />
-        <span>{releaseDate}</span>
-      </div>
-      <p className="text-gray-5 py-12">{description}</p>
-      <div className="flex justify-start mt-auto flex-wrap gap-4">
-        {categories.map((category) => (
-          <Category key={category} category={category} />
-        ))}
-      </div>
-    </div>
+
+        <Text size={'2'} color="gray" mt={'2'}>
+          {`${timeToRead} · ${releaseDate}`}
+        </Text>
+        <Text size={'3'} color="gray" mt={'3'}>
+          {description}
+        </Text>
+        <Flex gap={'2'} justify={'start'} mt={'auto'} wrap={'wrap'} pt={'4'}>
+          {categories.map(category => (
+            <Category key={category} category={category} />
+          ))}
+        </Flex>
+      </Flex>
+    </Card>
   );
 }
