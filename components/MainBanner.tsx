@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import Image from "next/image";
-import { Black_Han_Sans } from "@next/font/google";
+import { Black_Han_Sans } from "next/font/google";
 import Link from "next/link";
 
 const blackHanSans = Black_Han_Sans({

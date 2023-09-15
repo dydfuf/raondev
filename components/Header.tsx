@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Anton } from '@next/font/google';
+import { Anton } from "next/font/google";
 import classNames from 'classnames';
 import Link from 'next/link';
 import { Button, Flex, Text } from '@radix-ui/themes';

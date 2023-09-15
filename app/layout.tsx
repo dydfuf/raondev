@@ -47,7 +47,7 @@ export default function RootLayout({
         <Theme radius="large" scaling="100%">
           <Layout>{children}</Layout>
           <Analytics />
-          <ThemePanel />
+          {process.env.NODE_ENV === 'development' && <ThemePanel />}
         </Theme>
       </body>
     </html>
