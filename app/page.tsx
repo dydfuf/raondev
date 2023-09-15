@@ -1,10 +1,10 @@
 import ContentCard from '@/components/ContentCard';
 import DivideLine from '@/components/DivideLine';
-import MainBanner from '@/components/MainBanner';
 import { parseMarkdownMetadata } from '@/utils/parseMarkdownMetadata';
 import { getPostByName, getPostNameList } from '@/utils/post';
 import React from 'react';
 import readingTime from 'reading-time';
+import MainBanner from './MainBanner.server';
 
 export default function page() {
   const postList = getPostNameList().map(postName => ({
@@ -14,6 +14,7 @@ export default function page() {
 
   return (
     <div>
+      {/* @ts-expect-error Async Server Component */}
       <MainBanner />
       <DivideLine />
       <div className="w-full flex justify-center">

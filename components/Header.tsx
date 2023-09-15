@@ -32,12 +32,12 @@ export default function Header() {
         </Link>
         <Flex align={'center'} width={'100%'} gap={'5'}>
           <Link href="/todo" className="ml-auto shrink-0">
-            <Button variant="ghost" color="green" size={'3'}>
+            <Button variant="ghost" color="jade" size={'3'}>
               <Text weight={'bold'}>TODO</Text>
             </Button>
           </Link>
           <Link href="/aboutme" className="shrink-0">
-            <Button variant="ghost" color="green" size={'3'}>
+            <Button variant="ghost" color="jade" size={'3'}>
               <Text weight={'bold'}>About Me</Text>
             </Button>
           </Link>
