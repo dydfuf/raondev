@@ -6,7 +6,8 @@ const UNSPLASH_ACCESS_KEY = process.env.UNSPLASH_ACCESS_KEY;
 
 const getUnsplashImage = async () => {
   const res = await fetch(
-    `https://api.unsplash.com/photos/random/?client_id=${UNSPLASH_ACCESS_KEY}&collections=${87821}`
+    `https://api.unsplash.com/photos/random/?client_id=${UNSPLASH_ACCESS_KEY}&collections=${87821}`,
+    { next: { revalidate: 60 * 60 } }
   );
 
   if (!res.ok) {
