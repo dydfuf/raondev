@@ -1,3 +1,4 @@
+import { Flex, Text } from '@radix-ui/themes';
 import ListItem from './ListItem';
 import { TodoList } from './type';
 
@@ -11,15 +12,19 @@ export default function Todo({ lists }: Props) {
 
   return (
     <>
-      <div className="flex gap-12 text-20">
-        <span>DONE : {done.length}</span>
-        <span>TODO : {todo.length}</span>
-      </div>
-      <ul>
+      <Flex gap={'4'}>
+        <Text>
+          DONE : <Text weight={'bold'}>{done.length}</Text>
+        </Text>
+        <Text>
+          TODO : <Text weight={'bold'}>{todo.length}</Text>
+        </Text>
+      </Flex>
+      <Flex direction={'column'} gap={'3'} pt="4">
         {[...todo, ...done].map((todoList, idx) => (
           <ListItem key={`${idx}-${todoList.label}`} {...todoList} />
         ))}
-      </ul>
+      </Flex>
     </>
   );
 }

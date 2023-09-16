@@ -1,5 +1,6 @@
 import Todo from '@/components/Todo';
 import { TodoList } from '@/components/Todo/type';
+import { Container, Heading, Section, Text } from '@radix-ui/themes';
 import React from 'react';
 
 export default function TodoPage() {
@@ -17,13 +18,13 @@ export default function TodoPage() {
   ];
 
   return (
-    <section>
-      <h1 className="text-40 font-bold">
-        Raon.dev 기술 블로그 개선 사항 TODO List 입니다.
-      </h1>
-      <main className="mt-60">
+    <Section pt={'7'}>
+      <Heading as="h1" size={'8'}>
+        <Text> Raon.dev 기술 블로그 개선 사항 TODO List 입니다.</Text>
+      </Heading>
+      <Container pt={'5'}>
         <Todo lists={TODO_LISTS} />
-      </main>
-    </section>
+      </Container>
+    </Section>
   );
 }
