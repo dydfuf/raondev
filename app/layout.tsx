@@ -8,6 +8,7 @@ import Analytics from '@/components/Analytics';
 import { Metadata } from 'next';
 import Head from './head';
 import { Theme, ThemePanel } from '@radix-ui/themes';
+import NextThemeProvider from './NextThemeProvider';
 
 const description =
   '안녕하세요. Raon.dev의 개발 블로그 입니다. 주로 Front-end 관련 글을 작성합니다. Youtube 에서 라이브 방송을 합니다.';
@@ -41,14 +42,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html>
+    <html suppressHydrationWarning>
       <Head />
       <body>
-        <Theme radius="large" scaling="100%">
-          <Layout>{children}</Layout>
-          <Analytics />
-          {process.env.NODE_ENV === 'development' && <ThemePanel />}
-        </Theme>
+        <NextThemeProvider>
+          <Theme
+            radius="large"
+            scaling="100%"
+            // appearance="dark"
+            accentColor="jade"
+          >
+            <Layout>{children}</Layout>
+            <Analytics />
+            {process.env.NODE_ENV === 'development' && <ThemePanel />}
+          </Theme>
+        </NextThemeProvider>
       </body>
     </html>
   );

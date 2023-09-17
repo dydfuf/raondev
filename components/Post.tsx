@@ -1,10 +1,12 @@
 'use client';
+
 import useScrollTop from '@/hooks/useScrollTop';
-import Image from 'next/image';
 import Link from 'next/link';
 import { ReadTimeResults } from 'reading-time';
 import Category from './Category';
 import MarkdownRenderer from './MarkdownRenderer';
+import { Button, Flex, Heading, Section, Text } from '@radix-ui/themes';
+import { ArrowLeftIcon, ArrowRightIcon } from '@radix-ui/react-icons';
 
 interface Props {
   post: string;
@@ -21,52 +23,48 @@ export default function Post({ post, metadata, prev, next, stats }: Props) {
   useScrollTop({ dep: post });
 
   return (
-    <div className="flex flex-col items-center w-full h-full">
-      <div className="flex py-40 flex-col w-full max-w-[768px] px-20 h-full">
-        <h1 className="text-40 font-bold">{title}</h1>
-        <div className="flex items-center space-x-10 text-gray-5 pl-8 pt-20 w-full">
-          <span>{stats.text}</span>
-          <div className="w-2 h-2 rounded-1 bg-gray-4" />
-          <span>{date}</span>
-        </div>
-        <div className="flex justify-start flex-wrap gap-4 pt-20">
+    <Flex direction={'column'} align={'center'} width={'100%'} height={'100%'}>
+      <Flex
+        direction={'column'}
+        px={'5'}
+        py={'8'}
+        width={'100%'}
+        height={'100%'}
+        className="max-w-[768px]"
+      >
+        <Heading size={'9'} weight={'bold'}>
+          {title}
+        </Heading>
+        <Flex align={'center'} gap={'3'} color="gray" mt="5">
+          <Text size={'2'} color="gray" mt={'2'}>
+            {`${stats.text} · ${date}`}
+          </Text>
+        </Flex>
+        <Flex justify={'start'} wrap={'wrap'} gap={'2'} mt={'5'}>
           {categories.map(category => (
             <Category key={category} category={category} />
           ))}
-        </div>
-        <article className="pt-60 markdown-body !bg-[#fafafa]">
+        </Flex>
+        <Section py="5">
           <MarkdownRenderer markdownStr={post} />
-        </article>
-        <div className="flex mt-auto w-full pt-40">
+        </Section>
+        <Flex mt="auto" width={'100%'} pt="8">
           {prev && (
             <Link href={`/posts/${prev}`} className="mr-auto">
-              <div className="flex items-center px-12 h-32 border-1 border-brown-1/50 bg-brown-2/10 rounded-20 space-x-12">
-                <Image
-                  className="rotate-180"
-                  src="/arrow-right.svg"
-                  width="16"
-                  height="16"
-                  alt="next-arrow"
-                />
-                <span className="font-bold">{` ${prev}`}</span>
-              </div>
+              <Button color="green" radius="full">
+                <ArrowLeftIcon /> <Text weight={'bold'}>{prev}</Text>
+              </Button>
             </Link>
           )}
           {next && (
             <Link href={`/posts/${next}`} className="ml-auto">
-              <div className="flex items-center px-12 h-32 border-1 border-brown-1/50 bg-brown-2/10 rounded-20 space-x-12">
-                <span className="font-bold">{`${next}`}</span>
-                <Image
-                  src="/arrow-right.svg"
-                  width="16"
-                  height="16"
-                  alt="next-arrow"
-                />
-              </div>
+              <Button color="green" radius="full">
+                <Text weight={'bold'}>{next}</Text> <ArrowRightIcon />
+              </Button>
             </Link>
           )}
-        </div>
-      </div>
-    </div>
+        </Flex>
+      </Flex>
+    </Flex>
   );
 }

@@ -1,6 +1,7 @@
 import { PropsWithChildren } from 'react';
 import Header from './Header';
-import { Noto_Sans_KR } from "next/font/google";
+import { Noto_Sans_KR } from 'next/font/google';
+import { Flex } from '@radix-ui/themes';
 
 const notoSansKr = Noto_Sans_KR({
   subsets: ['latin'],
@@ -9,13 +10,11 @@ const notoSansKr = Noto_Sans_KR({
 
 export default function Layout({ children }: PropsWithChildren) {
   return (
-    <div
-      className={`h-screen flex flex-col bg-[#fafafa] ${notoSansKr.className}`}
-    >
+    <Flex direction={'column'} className={`h-screen ${notoSansKr.className}`}>
       <Header />
-      <div className="flex-1 flex flex-col overflow-auto" id="scrollEl">
+      <Flex direction={'column'} className="flex-1 overflow-auto" id="scrollEl">
         <main className="flex-1">{children}</main>
-      </div>
-    </div>
+      </Flex>
+    </Flex>
   );
 }
