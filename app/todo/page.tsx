@@ -6,7 +6,11 @@ import React from 'react';
 export default function TodoPage() {
   const TODO_LISTS: TodoList[] = [
     { label: '검색 기능 추가', status: 'TODO' },
-    { label: '다크 모드 지원', status: 'TODO' },
+    {
+      label: '다크 모드 지원',
+      status: 'DONE',
+      description: '2023-09-17 작업 완료',
+    },
     { label: 'TODO 페이지 분리', status: 'DONE' },
     {
       label: '포스팅에 이미지 추가',
