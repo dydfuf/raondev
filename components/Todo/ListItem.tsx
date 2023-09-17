@@ -24,7 +24,12 @@ export default function ListItem({ label, status, description }: Props) {
           weight={'bold'}
         >
           {label}
-          <Callout.Text size={'4'} weight={'medium'}>
+          <Callout.Text
+            as="span"
+            className="block"
+            size={'4'}
+            weight={'medium'}
+          >
             {description}
           </Callout.Text>
         </Callout.Text>
