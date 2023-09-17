@@ -9,10 +9,7 @@ export default function SwitchTheme() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  console.log({ theme });
-
   const switchTheme = () => {
-    console.log({ theme, mounted });
     if (theme === 'light') {
       setTheme('dark');
       return;
