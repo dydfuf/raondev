@@ -49,7 +49,7 @@ export default function RootLayout({
           <Theme
             radius="large"
             scaling="100%"
-            // appearance="dark"
+            grayColor="olive"
             accentColor="jade"
           >
             <Layout>{children}</Layout>
