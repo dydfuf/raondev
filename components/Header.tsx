@@ -9,7 +9,14 @@ const anton = Anton({ subsets: ['latin'], weight: ['400'], preload: false });
 
 export default function Header() {
   return (
-    <Flex asChild height={'9'} align={'center'} px={'4'} gap={'3'}>
+    <Flex
+      asChild
+      height={'9'}
+      align={'center'}
+      px={'4'}
+      gap={'3'}
+      style={{ backgroundColor: 'var(--gray-a2)' }}
+    >
       <header>
         <Link href={'/'}>
           <button className="w-40 h-40 flex items-center justify-center object-contain">

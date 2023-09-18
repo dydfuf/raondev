@@ -12,7 +12,12 @@ export default function Layout({ children }: PropsWithChildren) {
   return (
     <Flex direction={'column'} className={`h-screen ${notoSansKr.className}`}>
       <Header />
-      <Flex direction={'column'} className="flex-1 overflow-auto" id="scrollEl">
+      <Flex
+        direction={'column'}
+        className="flex-1 overflow-auto"
+        id="scrollEl"
+        style={{ backgroundColor: 'var(--gray-a2)' }}
+      >
         <main className="flex-1">{children}</main>
       </Flex>
     </Flex>
