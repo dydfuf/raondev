@@ -1,5 +1,4 @@
 import ContentCard from '@/components/ContentCard';
-import DivideLine from '@/components/DivideLine';
 import { parseMarkdownMetadata } from '@/utils/parseMarkdownMetadata';
 import { getPostByName, getPostNameList } from '@/utils/post';
 import React from 'react';

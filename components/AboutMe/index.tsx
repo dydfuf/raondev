@@ -1,17 +1,16 @@
-'use client';
 import DivideLine from '../DivideLine';
 import RoundImageLink from './RoundImageLink';
 import NameTag from './NameTag';
-import MainBanner from '../MainBanner';
 import useScrollTop from '@/hooks/useScrollTop';
+import MainBanner from '@/app/MainBanner.server';
 
 export default function AboutMe() {
   useScrollTop({});
 
   return (
     <div>
+      {/* @ts-expect-error Async Server Component */}
       <MainBanner />
-      <DivideLine />
       {/* 프로필 및 링크 섹션 */}
       <section className="mt-40 flex flex-col items-center">
         <div className="w-full flex justify-evenly p-20 gap-x-20 gap-y-10 flex-wrap max-w-[768px]">
