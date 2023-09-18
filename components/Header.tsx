@@ -15,7 +15,7 @@ export default function Header() {
       align={'center'}
       px={'4'}
       gap={'3'}
-      style={{ backgroundColor: 'var(--gray-a2)' }}
+      style={{ backgroundColor: 'var(--gray-a1)' }}
     >
       <header>
         <Link href={'/'}>

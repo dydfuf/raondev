@@ -16,7 +16,7 @@ export default function Layout({ children }: PropsWithChildren) {
         direction={'column'}
         className="flex-1 overflow-auto"
         id="scrollEl"
-        style={{ backgroundColor: 'var(--gray-a2)' }}
+        style={{ backgroundColor: 'var(--gray-a1)' }}
       >
         <main className="flex-1">{children}</main>
       </Flex>
