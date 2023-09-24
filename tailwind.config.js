@@ -1,5 +1,3 @@
-const colors = require("./tailwind/colors");
-
 const spacing = {};
 const borderWidth = {};
 const borderRadius = {};
@@ -17,9 +15,9 @@ for (let i = 0; i <= 1000; i++) {
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    './app/**/*.{js,ts,jsx,tsx}',
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
@@ -28,11 +26,10 @@ module.exports = {
       borderRadius,
       fontSize,
       lineHeight,
-      colors,
       screens: {
-        mobile: "320px",
+        mobile: '320px',
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [require('@tailwindcss/typography')],
 };

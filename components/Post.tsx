@@ -1,6 +1,3 @@
-'use client';
-
-import useScrollTop from '@/hooks/useScrollTop';
 import Link from 'next/link';
 import { ReadTimeResults } from 'reading-time';
 import Category from './Category';
@@ -19,8 +16,6 @@ interface Props {
 export default function Post({ post, metadata, prev, next, stats }: Props) {
   const { title, date, category } = metadata;
   const categories = category.split(',');
-
-  useScrollTop({ dep: post });
 
   return (
     <Flex direction={'column'} align={'center'} width={'100%'} height={'100%'}>
