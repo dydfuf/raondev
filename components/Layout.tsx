@@ -1,16 +1,11 @@
 import { PropsWithChildren } from 'react';
 import Header from './Header';
-import { Noto_Sans_KR } from 'next/font/google';
-import { Flex } from '@radix-ui/themes';
 
-const notoSansKr = Noto_Sans_KR({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '700'],
-});
+import { Flex } from '@radix-ui/themes';
 
 export default function Layout({ children }: PropsWithChildren) {
   return (
-    <Flex direction={'column'} className={`h-screen ${notoSansKr.className}`}>
+    <Flex direction={'column'} className={`h-screen`}>
       <Header />
       <Flex
         direction={'column'}

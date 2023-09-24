@@ -8,6 +8,7 @@ import { Metadata } from 'next';
 import Head from './head';
 import { Theme, ThemePanel } from '@radix-ui/themes';
 import NextThemeProvider from './NextThemeProvider';
+import { Noto_Sans_KR } from 'next/font/google';
 
 const description =
   '안녕하세요. Raon.dev의 개발 블로그 입니다. 주로 Front-end 관련 글을 작성합니다. Youtube 에서 라이브 방송을 합니다.';
@@ -36,6 +37,11 @@ export const metadata: Metadata = {
   },
 };
 
+const notoSansKr = Noto_Sans_KR({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '700'],
+});
+
 export default function RootLayout({
   children,
 }: {
@@ -44,7 +50,7 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning>
       <Head />
-      <body>
+      <body className={notoSansKr.className}>
         <NextThemeProvider>
           <Theme
             radius="large"

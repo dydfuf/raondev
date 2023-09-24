@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Button, Flex, Text } from '@radix-ui/themes';
 import SwitchTheme from './SwitchTheme.client';
 
-const anton = Anton({ subsets: ['latin'], weight: ['400'], preload: false });
+const anton = Anton({ subsets: ['latin'], weight: ['400'] });
 
 export default function Header() {
   return (
