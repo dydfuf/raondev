@@ -29,7 +29,6 @@ export default function ContentCard({
             </Text>
           </Flex>
         </Link>
-
         <Text size={'2'} color="gray" mt={'2'}>
           {`${timeToRead} · ${releaseDate}`}
         </Text>

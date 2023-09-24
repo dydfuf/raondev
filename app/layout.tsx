@@ -54,7 +54,9 @@ export default function RootLayout({
           >
             <Layout>{children}</Layout>
             <Analytics />
-            {process.env.NODE_ENV === 'development' && <ThemePanel />}
+            {process.env.NODE_ENV === 'development' && (
+              <ThemePanel defaultOpen={false} />
+            )}
           </Theme>
         </NextThemeProvider>
       </body>

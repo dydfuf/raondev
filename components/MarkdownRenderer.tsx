@@ -80,6 +80,12 @@ export default function MarkdownRenderer({ markdownStr }: Props) {
         a({ children }) {
           return <Link>{children}</Link>;
         },
+        ul({ children }) {
+          return <ul className="list-disc list-inside">{children}</ul>;
+        },
+        ol({ children }) {
+          return <ol className="list-decimal list-inside">{children}</ol>;
+        },
         code({ inline, className, children }: CodeProps) {
           const match = /language-(\w+)/.exec(className || '');
 
