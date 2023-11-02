@@ -29,6 +29,15 @@ module.exports = {
       screens: {
         mobile: '320px',
       },
+      animation: {
+        'content-fade-up': 'fade-up .4s ease forwards',
+      },
+      keyframes: {
+        'fade-up': {
+          '0%': { opacity: 0, transform: 'translateY(50px)' },
+          '100%': { opacity: 1, transform: 'none' },
+        },
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],
