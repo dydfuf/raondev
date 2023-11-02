@@ -1,7 +1,7 @@
 import ContentCard from '@/components/ContentCard';
 import { parseMarkdownMetadata } from '@/utils/parseMarkdownMetadata';
 import { getPostByName, getPostNameList } from '@/utils/post';
-import { Text } from '@radix-ui/themes';
+import { Box, Text } from '@radix-ui/themes';
 import readingTime from 'reading-time';
 
 export default function PostNotFoundPage() {
@@ -15,7 +15,10 @@ export default function PostNotFoundPage() {
   const stats = readingTime(content);
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center">
+    <Box
+      className="w-full h-full flex flex-col items-center justify-center"
+      px={'4'}
+    >
       <Text size={'7'} weight={'bold'}>
         아쉽게도 해당 글을 찾지 못했어요. 😭
       </Text>
@@ -30,6 +33,6 @@ export default function PostNotFoundPage() {
         categories={category?.split(',') ?? []}
         to={`/posts/${name}`}
       />
-    </div>
+    </Box>
   );
 }
