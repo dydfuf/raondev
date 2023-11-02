@@ -2,6 +2,7 @@ import Post from '@/components/Post';
 import { parseMarkdownMetadata } from '@/utils/parseMarkdownMetadata';
 import { getAdjacentPost, getPostByName } from '@/utils/post';
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import React from 'react';
 import readingTime from 'reading-time';
 
@@ -14,6 +15,10 @@ export default function Page({ params }: Props) {
   const { id } = params;
 
   const post = getPostByName(id as string);
+
+  if (!post) {
+    notFound();
+  }
 
   const { content, ...rest } = parseMarkdownMetadata(post);
 
