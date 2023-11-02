@@ -9,6 +9,8 @@ interface Props {
   releaseDate: string;
   categories: string[];
   to: string;
+  animate?: boolean;
+  index?: number;
 }
 
 export default function ContentCard({
@@ -18,9 +20,17 @@ export default function ContentCard({
   releaseDate,
   categories,
   to,
+  animate = false,
+  index,
 }: Props) {
+  const animateClassname = animate ? 'opacity-0 animate-content-fade-up' : '';
+
   return (
-    <Card variant={'surface'}>
+    <Card
+      variant={'surface'}
+      className={animateClassname}
+      style={{ animationDelay: `calc(${index} * 80ms)` }}
+    >
       <Flex direction="column" align={'center'} p={'3'} height={'100%'}>
         <Link href={to}>
           <Flex justify={'center'} align={'center'} width={'100%'}>
@@ -44,3 +54,21 @@ export default function ContentCard({
     </Card>
   );
 }
+/**
+opacity: 0;
+animation: speakers-grid_fadeUp__uKKaK .4s ease forwards;
+animation-delay: calc(var(--index) * 40ms);
+
+ */
+
+/**
+0% {
+  transform: trnaslateY(50px);
+  opacity: 0;
+}
+
+100% {
+  opacity: 1;
+  transform: none;
+}
+ */

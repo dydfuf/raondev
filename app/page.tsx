@@ -17,7 +17,7 @@ export default function page() {
       <MainBanner />
       <div className="w-full flex justify-center">
         <div className="w-full gap-20 grid grid-cols-1 p-20 max-w-[768px] sm:grid-cols-2">
-          {postList.map(post => {
+          {postList.map((post, index) => {
             const { name, content } = post;
             const { date, description, category, title } =
               parseMarkdownMetadata(content);
@@ -32,6 +32,8 @@ export default function page() {
                 releaseDate={date ?? ''}
                 categories={category?.split(',') ?? []}
                 to={`/posts/${name}`}
+                index={index}
+                animate
               />
             );
           })}
