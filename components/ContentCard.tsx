@@ -54,21 +54,3 @@ export default function ContentCard({
     </Card>
   );
 }
-/**
-opacity: 0;
-animation: speakers-grid_fadeUp__uKKaK .4s ease forwards;
-animation-delay: calc(var(--index) * 40ms);
-
- */
-
-/**
-0% {
-  transform: trnaslateY(50px);
-  opacity: 0;
-}
-
-100% {
-  opacity: 1;
-  transform: none;
-}
- */
