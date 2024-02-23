@@ -107,11 +107,11 @@ pnpm run dev # 모든 apps의 dev 명령어를 실행합니다.
 아직 TurboRepo의 기능들은 거의 사용하지도 않았구요.
 
 다음 글에는 아래와 같은 내용을 추가로 공유하고자 합니다.
-- 효율적인 모노레포 개발을 위한 브랜치 전략 ( Trunk Based Development 기반 )
+- 효율적인 모노레포 개발을 위한 브랜치 전략 ( [Trunk Based Development](https://trunkbaseddevelopment.com/) 기반 )
 - 태그 기반 애플리케이션 배포
 - packages 하위의 라이브러리성 패키지들의 버저닝 및 배포 ( Github packages 사용 )
 - 환경변수 관리
-- 공통화된 ui 라이브러리 사용 ( shadcn 사용 )
+- 공통화된 ui 라이브러리 사용 ( [shadcn/ui](https://ui.shadcn.com/) 사용 )
 - 공통화된 도메인 사용 ( 2차 도메인 활용 및 Vercel 배포와 연동 )
 
 위 나열한 내용들 말고도 추가로 공유하고 싶은 내용이 많으니 조금만 기다려주세요!
