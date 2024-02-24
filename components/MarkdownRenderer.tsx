@@ -62,7 +62,7 @@ export default function MarkdownRenderer({ markdownStr }: Props) {
         },
         p({ children }: CodeProps) {
           return (
-            <Text as="p" className="!my-16 leading-[1.5]" size={'5'}>
+            <Text as="p" className="!my-16 leading-[2]" size={'5'}>
               {children}
             </Text>
           );
@@ -81,10 +81,20 @@ export default function MarkdownRenderer({ markdownStr }: Props) {
           return <Link>{children}</Link>;
         },
         ul({ children }) {
-          return <ul className="list-disc list-inside">{children}</ul>;
+          return (
+            <Text size={'4'} asChild>
+              <ul className="list-disc list-inside leading-[1.5]">{children}</ul>
+            </Text>
+          );
         },
         ol({ children }) {
-          return <ol className="list-decimal list-inside">{children}</ol>;
+          return (
+            <Text size={'4'} asChild>
+              <ol className="list-decimal list-inside leading-[1.5]">
+                {children}
+              </ol>
+            </Text>
+          );
         },
         code({ inline, className, children }: CodeProps) {
           const match = /language-(\w+)/.exec(className || '');
