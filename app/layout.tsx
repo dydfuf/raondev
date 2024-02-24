@@ -9,6 +9,7 @@ import Head from './head';
 import { Theme, ThemePanel } from '@radix-ui/themes';
 import NextThemeProvider from './NextThemeProvider';
 import { Noto_Sans_KR } from 'next/font/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const description =
   '안녕하세요. Raon.dev의 개발 블로그 입니다. 주로 Front-end 관련 글을 작성합니다. Youtube 에서 라이브 방송을 합니다.';
@@ -60,6 +61,7 @@ export default function RootLayout({
           >
             <Layout>{children}</Layout>
             <Analytics />
+            <SpeedInsights />
             {process.env.NODE_ENV === 'development' && (
               <ThemePanel defaultOpen={false} />
             )}
