@@ -1,6 +1,6 @@
 ---
 title: 개인 프로젝트의 생산성 향상을 위한 모노레포 도입기 -1- w/TurboRepo
-date: 2024-03-01
+date: 2024-02-24
 description: 개인 프로젝트 생산성 향상을 위해 TurboRepo를 도입한 경험을 소개합니다.
 category: 모노레포, TurboRepo, 생산성
 ---
