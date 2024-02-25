@@ -62,7 +62,7 @@ export default function MarkdownRenderer({ markdownStr }: Props) {
         },
         p({ children }: CodeProps) {
           return (
-            <Text as="p" className="!my-16 leading-[2]" size={'5'}>
+            <Text as="p" className="!my-16 leading-[1.75]" size={'5'}>
               {children}
             </Text>
           );
